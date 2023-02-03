@@ -1,7 +1,11 @@
 #include "Player.h"
+#include "Warrior.h"
+#include "Wizard.h"
+#include "Rogue.h"
+
 
 
 bool IntroScene();
 
-
-Player* SetupPlayer();
+void aboutGame();
+Player* SetupPlayer(std::string name);
