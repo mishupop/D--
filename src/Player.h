@@ -6,14 +6,21 @@
 #include <string>
 #include <vector>
 #include "Item.h"
+#include "misc.h"
 
 class Player
 {
 public:
     Player();
+
+    Player(std::string name,int damage,int health);
+    
    virtual ~Player();
 
 std::vector <Item*> Inventory;
+
+void getPlayerName(std::string name);
+
 
 virtual void Attack();
 
