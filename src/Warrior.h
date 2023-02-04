@@ -6,7 +6,7 @@
 #include "Item.h"
 #include "misc.h"
 class Warrior: public Player
-{
+{//-aici e acolada subliniata cu "expected class-name..
 public:
     Warrior(std::string name,int damage,int health)
     {
