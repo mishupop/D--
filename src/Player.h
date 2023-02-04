@@ -11,13 +11,12 @@
 class Player
 {
 public:
-    Player();
-
+   Player(){};
     Player(std::string name,int damage,int health);
     
    virtual ~Player();
 
-std::vector <Item*> Inventory;
+//std::vector <Item*> Inventory;
 
 void getPlayerName(std::string name);
 

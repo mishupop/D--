@@ -3,15 +3,22 @@
 
 #pragma once
 #include "Player.h"
+#include "Item.h"
+#include "misc.h"
 class Warrior: public Player
 {
 public:
-    Warrior();
+    Warrior(std::string name,int damage,int health)
+    {
+        
+    };
     ~Warrior();
 
 void Attack();
 private:
-
+std::string m_name;
+int m_damage;
+int m_health;
 };
 
 #endif
