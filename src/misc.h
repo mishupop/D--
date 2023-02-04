@@ -1,11 +1,15 @@
+#ifndef MISC_H
+#define MISC_H
+#pragma once
 #include "Player.h"
-#include "Warrior.h"
-#include "Wizard.h"
-#include "Rogue.h"
 
 
 
 bool IntroScene();
 
 void aboutGame();
-Player* SetupPlayer(std::string name);
+
+void choosePlayerType();
+
+//Player* SetupPlayer(std::string name);
+#endif

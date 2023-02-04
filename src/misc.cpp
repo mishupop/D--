@@ -10,6 +10,8 @@ void aboutGame()
     
 }
 
+
+
 bool IntroScene(bool start)
 {
     char decide;
@@ -30,15 +32,12 @@ bool IntroScene(bool start)
 
 
 
-
-
-Player* SetupPlayer(std::string name)
-
+void choosePlayerType()
 {
-    Player You;
-   
-    std::cout<<"Insert your player name: \n";
-    std::cin>>name;
+     Player You;
+   std::string name;
+   int choose;
+    std::cout<<"Insert your player name: \n";    
 
     You.getPlayerName(name);
 
@@ -48,7 +47,7 @@ Player* SetupPlayer(std::string name)
     std::cout<<"Rogue = 3 \n";
 
 
-    int choose;
+    
     std::cin>>choose;
     switch (choose)
     {
@@ -66,3 +65,12 @@ Player* SetupPlayer(std::string name)
         break;
     }
 }
+
+
+/*
+Player* SetupPlayer()
+
+{
+   
+}
+*/

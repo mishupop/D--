@@ -3,14 +3,13 @@
 
 #pragma once
 #include "Player.h"
-#include "Item.h"
-#include "misc.h"
+
 class Warrior: public Player
 {
 public:
-    Warrior(std::string name,int damage,int health)
+    Warrior()
     {
-        
+
     };
     ~Warrior();
 

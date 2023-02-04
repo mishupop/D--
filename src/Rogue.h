@@ -3,12 +3,11 @@
 
 #pragma once
 #include "Player.h"
-#include "Item.h"
-#include "misc.h"
+
 class Rogue:public Player
 {
 public:
-    Rogue(std::string name,int damage,int health)
+    Rogue()
     {
 
     };

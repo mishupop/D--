@@ -4,16 +4,22 @@
 #pragma once
 #include "Player.h"
 
+
 class Wizard:public Player
 {
 public:
-    Wizard();
+    Wizard()
+    {
+
+    };
     ~Wizard();
 
 void Attack();
 
 private:
-
+std::string m_name;
+int m_damage;
+int m_health;
 };
 
 #endif
