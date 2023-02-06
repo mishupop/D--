@@ -5,7 +5,7 @@
 #include "Player.h"
 
 class Rogue:public Player
-{
+{//-aici e acolada subliniata cu "expected class-name..
 public:
     Rogue()
     {

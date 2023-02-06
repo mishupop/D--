@@ -6,7 +6,7 @@
 
 
 class Wizard:public Player
-{
+{//-aici e acolada subliniata cu "expected class-name..
 public:
     Wizard()
     {

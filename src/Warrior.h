@@ -5,7 +5,7 @@
 #include "Player.h"
 
 class Warrior: public Player
-{
+{//-aici e acolada subliniata cu "expected class-name..
 public:
     Warrior()
     {
