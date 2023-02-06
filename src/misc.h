@@ -1,7 +1,9 @@
 #ifndef MISC_H
 #define MISC_H
 #pragma once
-#include "Player.h"
+#include <iostream>
+#include <string>
+#include <vector>
 
 
 
@@ -9,7 +11,7 @@ bool IntroScene();
 
 void aboutGame();
 
-void choosePlayerType();
+
 
 //Player* SetupPlayer(std::string name);
 #endif
