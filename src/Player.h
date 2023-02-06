@@ -11,7 +11,7 @@
 class Player
 {
 public:
-   Player(){};
+   Player();
     Player(std::string name,int damage,int health);
     
    virtual ~Player();
