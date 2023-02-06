@@ -9,13 +9,13 @@ public:
     Item();
     ~Item();
 
-    int AttackPower;
-    int MagicPower;
-    int Defence;
-    std::string ItemType;
+   
 
 private:
-
+ int m_attackPower;
+    int m_magicPower;
+    int m_defence;
+    std::string m_itemType;
 };
 
 #endif
