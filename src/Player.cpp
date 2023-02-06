@@ -21,6 +21,7 @@ void Player::getPlayerName(std::string name)
     std::cin>>name;
     m_PlayerName=name;
 }
+/*
 void choosePlayerType()
 {
      Player You;
@@ -53,7 +54,7 @@ void choosePlayerType()
     std::cout<<"You must type 1, 2, or 3 \n";
         break;
     }
-}
+}*/
 void Player::Attack()
 {
     std::cout<<"Player attacks \n";

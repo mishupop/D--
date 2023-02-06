@@ -9,7 +9,11 @@ public:
     Item();
     ~Item();
 
-   
+   int getattackPower();
+
+   int getdefence();
+
+   std::string getitemType();
 
 private:
  int m_attackPower;

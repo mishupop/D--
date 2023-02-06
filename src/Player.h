@@ -20,7 +20,7 @@ public:
 
 void getPlayerName(std::string name);
 
-virtual void choosePlayerType();
+//virtual void choosePlayerType();
 
 virtual void Attack();
 

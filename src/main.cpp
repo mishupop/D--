@@ -9,11 +9,7 @@
 
 int main(int argc, char const *argv[])
 {
-   Player You;
-aboutGame();
-
-You.choosePlayerType();
-You.Attack();
+ 
 
 
 
