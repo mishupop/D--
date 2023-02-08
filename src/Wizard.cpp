@@ -11,3 +11,8 @@ void Wizard::Attack()
 {
     std::cout<<"A wizard attacks \n";
 }
+Wizard::Wizard(std::string name)
+:Player(name)
+{
+    
+}

@@ -12,14 +12,14 @@ public:
     {
 
     };
+    Wizard(std::string name);
+
     ~Wizard();
 
 void Attack();
 
 private:
-std::string m_name;
-int m_damage;
-int m_health;
+
 };
 
 #endif

@@ -8,11 +8,17 @@
 #include "Item.h"
 #include "misc.h"
 
+
+enum class player_type{
+warior=1,
+wizard,
+rogue};
+
 class Player
 {
 public:
    Player();
-    Player(std::string name,int damage,int health);
+    Player(std::string name);
     
    virtual ~Player();
 
@@ -20,19 +26,24 @@ public:
 
 void getPlayerName(std::string name);
 
-//virtual void choosePlayerType();
+
+
+
 
 virtual void Attack();
 
 
 void CheckInventory();
 
+protected:
+std::string m_player_name;
 
 private:
-std::string m_PlayerName;
+
 int m_health;
 int m_damage;
 
+//setat de derivate
 
 };
 

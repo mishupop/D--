@@ -11,14 +11,13 @@ public:
     {
 
     };
+    Rogue (std::string name);
     ~Rogue();
 
     void Attack();
 
 private:
-std::string m_name;
-int m_damage;
-int m_health;
+
 };
 
 #endif
