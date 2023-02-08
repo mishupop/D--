@@ -6,7 +6,7 @@
 #include <string>
 #include <vector>
 #include "Item.h"
-#include "misc.h"
+//#include "Misc.h" aici era problema
 
 
 enum class player_type{

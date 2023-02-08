@@ -6,7 +6,8 @@ void aboutGame()
 {
   
     
-       std::cout<<"Text despre joc \n";  
+       std::cout<<"Text despre joc \n"; 
+       //insert clear screen+press any key to continue
     
 }
 
@@ -70,6 +71,11 @@ Player* setupPlayer()
     std::cout<<"You must type 1, 2, or 3 \n";
         break;
     }
+
+    //insert clear screen+press any key to continue
+
+    std::cout<<"Hello "<< player_type<<"-"<<player_name<<std::endl;
+
     if(player_type == "Wizard")
     {
         Player* player = new Wizard(player_name);
@@ -86,6 +92,8 @@ Player* setupPlayer()
         return player;
     }
 }
+
+
 
 
 
