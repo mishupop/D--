@@ -8,25 +8,29 @@ void aboutGame()
     
        std::cout<<"Text despre joc \n"; 
        //insert clear screen+press any key to continue
-    
+       std::cout<<"press any key to continue\n";
+    std::cin.get();
+    std::cout << "\033[2J\033[1;1H";//-clear screen
 }
 
 
 
-bool IntroScene(bool start)
+bool IntroScene()
 {
     char decide;
-    
+    bool start=false;
   
     std::cout<<"Do you want to start playing the game? type (y/n): ";
     std::cin>>decide;
 
-    if(decide = 'y')
+    if(decide == 'y')
     start=true;
-    else if (decide = 'n')
+    else if (decide == 'n')
     start=false;
 
-    
+    std::cout<<"press any key to continue\n";
+    std::cin.get();
+    std::cout << "\033[2J\033[1;1H";//-clear screen
 
     return start;
 
@@ -71,7 +75,9 @@ Player* setupPlayer()
     std::cout<<"You must type 1, 2, or 3 \n";
         break;
     }
-
+    std::cout<<"press any key to continue\n";
+    std::cin.get();
+    std::cout << "\033[2J\033[1;1H";//-clear screen
     //insert clear screen+press any key to continue
 
     std::cout<<"Hello "<< player_type<<"-"<<player_name<<std::endl;

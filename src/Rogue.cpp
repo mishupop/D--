@@ -4,7 +4,7 @@
 
 Rogue::~Rogue()
 {
-
+std::cout<<"rogue deleted\n";
 }
 
 void Rogue::Attack()
@@ -16,5 +16,8 @@ void Rogue::Attack()
 Rogue::Rogue(std::string name)
 :Player(name)
 {
-    
+   std::cout<<"rogue created\n"; 
 }
+
+
+

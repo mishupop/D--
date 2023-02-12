@@ -3,7 +3,7 @@
 
 Warrior::~Warrior()
 {
-
+std::cout<<"warrior deletetd\n";
 }
 
 void Warrior::Attack()
@@ -13,5 +13,5 @@ void Warrior::Attack()
 Warrior::Warrior(std::string name)
 :Player(name)
 {
-    
+   std::cout<<"warrior created\n"; 
 }
