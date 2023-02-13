@@ -14,10 +14,11 @@ std::cout<<"player created\n";
 std::cout<<"player deleted\n";
 }
 
-void Player::getPlayerName(std::string name)
+void Player::setPlayerName(std::string name)
 {
 m_player_name=name;
 }
+
 
 void Player::Attack()
 {
