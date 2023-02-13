@@ -23,7 +23,7 @@ crossRoads();
     if (chestOpen())
     {
         std::cout<<"You opened the chest!!!\n";
-        std::cout<<"But what do you find inside? \n";
+        std::cout<<"But what do you find inside it? \n";
     }
     else
     {

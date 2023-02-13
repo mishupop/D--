@@ -101,7 +101,7 @@ Player* setupPlayer()
         Player* player = new Rogue(player_name);
         return player;
     }
-    
+   
 }
 
 std::string roadChosen;
