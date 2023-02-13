@@ -17,6 +17,20 @@ int main(int argc, char const *argv[])
  if (IntroScene())
  {
  Player* player=setupPlayer();
+
+crossRoads();
+
+    if (chestOpen())
+    {
+        std::cout<<"You opened the chest!!!\n";
+        std::cout<<"But what do you find inside? \n";
+    }
+    else
+    {
+        std::cout<<"You continue on your journey. \n";
+    }
+
+
  delete player;
  }
 else

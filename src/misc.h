@@ -15,9 +15,11 @@ bool IntroScene();
 
 void aboutGame();
 
-
-
 Player* setupPlayer();
+
+void crossRoads();
+
+bool chestOpen();
 
 
 

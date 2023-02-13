@@ -9,7 +9,7 @@
 
 enum class Enemy_type
 {
-    Orc=1,
+    Orc,
     Troll,
     Warlock
 };
@@ -19,7 +19,24 @@ class Enemy
 public:
     Enemy();
     ~Enemy();
-std::vector <Item*> Inventory;
+
+
+void setHp(int hp)
+    {
+        m_hp = hp;
+    }
+int getHP()
+    {
+        return m_hp;
+    }
+void setDamage(int damage)
+    {
+      m_damage = damage;
+    }
+int getDamage()
+    {
+        return m_damage;
+    }
 
 virtual void enemy_attack();
 

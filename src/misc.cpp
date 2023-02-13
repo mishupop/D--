@@ -82,6 +82,10 @@ Player* setupPlayer()
 
     std::cout<<"Hello "<< player_type<<"-"<<player_name<<std::endl;
 
+    std::cout<<"press any key to continue\n";
+    std::cin.get();
+    std::cout << "\033[2J\033[1;1H";//-clear screen
+
     if(player_type == "Wizard")
     {
         Player* player = new Wizard(player_name);
@@ -92,12 +96,74 @@ Player* setupPlayer()
         Player* player = new Warrior(player_name);
         return player;
     }
-    else 
+    else if (player_type=="Rogue")
     {
         Player* player = new Rogue(player_name);
         return player;
     }
+    
 }
+
+std::string roadChosen;
+void crossRoads()
+{
+    int chooseRoad;
+    
+    std::cout<<"You're walking on a road and arrive at a crossroad \n";
+    std::cout<<"with three paths ahead. one leads to a village, another \n";
+    std::cout<<"to a forest and the third to a cave. \n";
+    std::cout<<" Which path will you choose? \n";
+    std::cout<<"Village -1, forest -2, cave -3 \n";
+    std::cin>>chooseRoad;
+
+    switch (chooseRoad)
+    {
+        case 1:
+        roadChosen="village";
+        
+        break;
+        case 2:
+        roadChosen="forest";
+        
+        break;
+        case 3:
+        roadChosen="cave";
+        
+        default:
+        std::cout<<"You must type 1, 2, or 3 \n";
+        break;
+    
+    }
+    
+    std::cout<<"You chose the "<<roadChosen<<std::endl;
+    std::cout<<"press any key to continue\n";
+    std::cin.get();
+    std::cout << "\033[2J\033[1;1H";//-clear screen
+    
+}
+
+bool chestOpen()
+{
+    bool openChest=false;
+    char doYouOpen;
+    std::cout<<"As you walk on the path to the "<<roadChosen<<" you come across a chest \n";
+    std::cout<<"on the side of the road. \n";
+    std::cout<<"Do you want to open it? (y/n): ";
+    std::cin>>doYouOpen;
+
+    if(doYouOpen == 'y')
+    openChest=true;
+    else if (doYouOpen == 'n')
+    openChest=false;
+
+    std::cout<<"press any key to continue\n";
+    std::cin.get();
+    std::cout << "\033[2J\033[1;1H";//-clear screen
+
+return openChest;
+}
+
+
 
 
 

@@ -8,18 +8,48 @@ class Item
 public:
     Item();
     ~Item();
+void setattackPower(int attackPower)
+{
+    m_attackPower=attackPower;
+}
+int getattackPower()
+{
+return m_attackPower;
+}
+void setDefence(int defence)
+{
+    m_defence=defence;
+}
+int getdefence()
+{
+return m_defence;
+}
 
-   int getattackPower();
+void setItemType(std::string itemType)
+{
+    m_itemType=itemType;
+}
 
-   int getdefence();
+std::string getItemType()
+{
+    return m_itemType;
+}
 
-   std::string getitemType();
+void setItemName(std::string itemName)
+{
+m_itemName=itemName;
+}
+std::string getitemName()
+{
+    return m_itemName;
+}
 
 private:
  int m_attackPower;
     int m_magicPower;
     int m_defence;
     std::string m_itemType;
+    std::string m_itemName;
 };
 
 #endif
