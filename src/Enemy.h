@@ -18,7 +18,7 @@ class Enemy
 {
 public:
     Enemy();
-    ~Enemy();
+    virtual ~Enemy();
 
 
 void setHp(int hp)
@@ -37,6 +37,8 @@ int getDamage()
     {
         return m_damage;
     }
+
+    
 
 virtual void enemy_attack();
 

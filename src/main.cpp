@@ -30,9 +30,12 @@ crossRoads();
     {
         std::cout<<"You continue on your journey. \n";
     }
+
+    Enemy* enemy=createEnemy();
 player->CheckInventory();
 player->clearInventory();
  delete player;
+ delete enemy;
  //delete play;
  
  }

@@ -2,12 +2,12 @@
 
 Enemy::Enemy()
 {
-
+std::cout<<"enemy created"<<std::endl;
 }
 
 Enemy::~Enemy()
 {
-
+std::cout<<"enemy deleted"<<std::endl;
 }
 
 void Enemy::enemy_attack()
