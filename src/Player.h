@@ -22,7 +22,10 @@ public:
     
    virtual ~Player();
 
-//std::vector <Item*> Inventory;
+
+
+Player_type player_type;
+
 
 void setPlayerName(std::string name);
 
@@ -52,11 +55,15 @@ int getDamage()
 virtual void Attack();
 
 
+
+
+void createChestItems();
 void CheckInventory();
+void clearInventory();
 
 protected:
 std::string m_player_name;
-
+std::vector <Item*> Inventory;
 private:
 
 int m_health;

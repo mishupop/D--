@@ -57,7 +57,6 @@ Player* setupPlayer()
     std::cout<<"Wizard = 2 \n";
     std::cout<<"Rogue = 3 \n";
 
-
     
     std::cin>>choose;
     switch (choose)
@@ -86,22 +85,27 @@ Player* setupPlayer()
     std::cin.get();
     std::cout << "\033[2J\033[1;1H";//-clear screen
 
+    Player* the_player;
+
     if(player_type == "Wizard")
     {
         Player* player = new Wizard(player_name);
-        return player;
+        //return player;
+        the_player=player;
     }
     else if(player_type == "Warrior")
     {
         Player* player = new Warrior(player_name);
-        return player;
+        //return player;
+        the_player=player;
     }
     else if (player_type=="Rogue")
     {
         Player* player = new Rogue(player_name);
-        return player;
+        //return player;
+        the_player=player;
     }
-   
+   return the_player;
 }
 
 std::string roadChosen;
@@ -160,8 +164,15 @@ bool chestOpen()
     std::cin.get();
     std::cout << "\033[2J\033[1;1H";//-clear screen
 
+
 return openChest;
 }
+
+
+
+
+
+
 
 
 

@@ -2,12 +2,14 @@
 #define ITEM_H
 
 #pragma once
-#include "Player.h"
+#include <iostream>
+#include <string>
 class Item
 {
 public:
     Item();
-    ~Item();
+    Item(std::string itemType,std::string itemName,int attackPower, int magicPower,int defence);
+   virtual ~Item();
 void setattackPower(int attackPower)
 {
     m_attackPower=attackPower;

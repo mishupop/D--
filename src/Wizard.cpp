@@ -1,6 +1,10 @@
 #include "Wizard.h"
 
-
+Wizard::Wizard(std::string name)
+:Player(name)
+{
+    std::cout<<"wizard created\n";
+}
 
 Wizard::~Wizard()
 {
@@ -11,8 +15,4 @@ void Wizard::Attack()
 {
     std::cout<<"A wizard attacks \n";
 }
-Wizard::Wizard(std::string name)
-:Player(name)
-{
-    std::cout<<"wizard created\n";
-}
+
