@@ -2,6 +2,9 @@
 
 Warlock::Warlock()
 {
+    setHp(60);
+    setDamage(44);
+    this->enemy_type=Enemy_type::Warlock;
 std::cout<<"Enemy warlock created"<<std::endl;
 }
 
