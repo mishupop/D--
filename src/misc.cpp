@@ -90,18 +90,22 @@ Player* setupPlayer()
     if(player_type == "Wizard")
     {
         Player* player = new Wizard(player_name);
+        player->player_type = Player_type::wizard;
         //return player;
         the_player=player;
     }
     else if(player_type == "Warrior")
     {
         Player* player = new Warrior(player_name);
+         player->player_type = Player_type::warior;
+    
         //return player;
         the_player=player;
     }
     else if (player_type=="Rogue")
     {
         Player* player = new Rogue(player_name);
+        player->player_type = Player_type::rogue;
         //return player;
         the_player=player;
     }

@@ -29,6 +29,9 @@ Player_type player_type;
 
 void setPlayerName(std::string name);
 
+ Player_type getPlayerType() const {
+        return player_type;
+    }
 
 std::string getPlayerName()
 {
@@ -57,7 +60,7 @@ virtual void Attack();
 
 
 
-void createChestItems();
+Item* createChestItems();
 void CheckInventory();
 void clearInventory();
 

@@ -6,7 +6,6 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
-//#include "Player.h"
 #include "Warrior.h"
 #include "Wizard.h"
 #include "Rogue.h"
