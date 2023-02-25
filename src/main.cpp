@@ -37,7 +37,7 @@ srand(time(nullptr));
  if (weapon != nullptr)
         {
     player->CheckInventory();
-    //player->clearInventory();
+    player->clearInventory();
         }
  
 

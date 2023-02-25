@@ -156,36 +156,6 @@ bool chestOpen()
 return openChest;
 }
 
-/*Enemy* createEnemy()
-{
-    Enemy* enemy=nullptr;
-    srand(time(0));
-    Enemy_type enemy_type=(Enemy_type)(rand()%3);
-
-    if (enemy_type== Enemy_type::Troll)
-    {
-        enemy=new Troll();
-      
-        std::cout<<"Troll created"<<std::endl;
-    }
-
-    else if (enemy_type== Enemy_type::Orc)
-    {
-        enemy=new Orc();
-       
-        std::cout<<"Orc created"<<std::endl;
-    }
-
-    else if (enemy_type== Enemy_type::Warlock)
-    {
-        enemy=new Warlock();
-       
-        std::cout<<"Warlock created"<<std::endl;
-    }
-   
-return enemy;
-}*/
-
 
 std::shared_ptr<Enemy> createEnemy()
 {
