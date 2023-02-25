@@ -26,37 +26,38 @@ void Player::Attack()
     std::cout<<"Player attacks \n";
 }
 
- Item* Player::createChestItems()
+ ItemPtr Player::createChestItems()
 {
-    Item * weapon=nullptr;
+   weapon=nullptr;
     //Player_type player_type;
     switch (getPlayerType())
     {
     case Player_type::warior:
         {
-        Item* battle_axe=new Item ("attack","battle_axe",30,0,5);
-        Inventory.push_back(battle_axe);
+       ItemPtr weapon = std::make_shared<Item>("attack", "battle_axe", 30, 0, 5);
+        Inventory.push_back(std::move(weapon));
         std::cout<<"It's the Battle Axe of Gregor the Destroyer!!! \n";
         std::cout<<"Axe is added to inventory"<<std::endl;
-        weapon=battle_axe;
+        //weapon=battle_axe;
         break;
         }
     case Player_type::wizard:
         {
-        Item* magic_staff=new Item("magic","magic_staff",10,30,10);
-        Inventory.push_back(magic_staff);
+        ItemPtr weapon = std::make_shared<Item>("magic","magic_staff",10,30,10);
+        Inventory.push_back(std::move(weapon));
         std::cout<<"It's the magic staff of Killtermoor!!! \n";
         std::cout<<"Staff is added to inventory"<<std::endl;
-        weapon=magic_staff;
+        //weapon=magic_staff;
         break;
         }
     case Player_type::rogue:
         {
-        Item* machete=new Item ("attack","machete",50,0,10);
-        Inventory.push_back(machete);
+        ItemPtr weapon = std::make_shared<Item> ("attack","machete",50,0,10);
+        Inventory.push_back(weapon);
         std::cout<<"It's the machete of Yaangstllafaiyi!!! \n";
         std::cout<<"Machete is added to inventory"<<std::endl;
-        weapon=machete;
+        //weapon=machete;
+        return weapon;
         break;
         }
         
@@ -74,12 +75,12 @@ void Player::CheckInventory()
 }
 
 
-void Player::clearInventory()
+/*void Player::clearInventory()
 {
-    for (auto &weapon:Inventory)
+    for (auto &x:Inventory)
     {
-        delete weapon;
+        delete x;
     }
     Inventory.clear();
-}
+}*/
 

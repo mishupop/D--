@@ -10,10 +10,11 @@ int main(int argc, char const *argv[])
  
  if (IntroScene())
  {
- Player* player=setupPlayer();
+ std::shared_ptr<Player> player=setupPlayer();
+ 
 
 crossRoads();
-Item* weapon = nullptr;
+ItemPtr weapon = nullptr;
     if (chestOpen())
     {
         std::cout<<"You opened the chest!!!\n";
@@ -30,17 +31,17 @@ Item* weapon = nullptr;
         std::cout<<"You continue on your journey. \n";
     }
 srand(time(nullptr));
-    Enemy* enemy=createEnemy();
+    std::shared_ptr<Enemy> enemy=createEnemy();
 
 
  if (weapon != nullptr)
         {
     player->CheckInventory();
-    player->clearInventory();
+    //player->clearInventory();
         }
  
- delete player;
- delete enemy;
+
+ 
   
  }
  

@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <memory>
 #include "Item.h"
 //#include "Misc.h" aici era problema
 
@@ -58,15 +59,15 @@ int getDamage()
 virtual void Attack();
 
 
+ItemPtr weapon=nullptr;
 
-
-Item* createChestItems();
+ItemPtr createChestItems();
 void CheckInventory();
 void clearInventory();
 
 protected:
 std::string m_player_name;
-std::vector <Item*> Inventory;
+std::vector<ItemPtr> Inventory;
 private:
 
 int m_health;

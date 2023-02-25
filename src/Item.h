@@ -4,6 +4,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <memory>
 class Item
 {
 public:
@@ -53,5 +54,5 @@ private:
     std::string m_itemType;
     std::string m_itemName;
 };
-
+using ItemPtr = std::shared_ptr<Item>;
 #endif

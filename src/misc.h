@@ -6,6 +6,7 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
+#include <memory>
 #include "Warrior.h"
 #include "Wizard.h"
 #include "Rogue.h"
@@ -19,13 +20,15 @@ bool IntroScene();
 
 void aboutGame();
 
-Player* setupPlayer();
+
+
+std::shared_ptr<Player> setupPlayer();
 
 void crossRoads();
 
 bool chestOpen();
 
-Enemy* createEnemy();
+std::shared_ptr<Enemy> createEnemy();
 
 
 

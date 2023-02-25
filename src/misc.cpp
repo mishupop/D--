@@ -43,10 +43,10 @@ bool IntroScene()
 
 
 
-Player* setupPlayer()
+std::shared_ptr<Player> setupPlayer()
 
 {
-   std::string player_name, player_type;
+   std::string player_name, player_typename;
    int choose;
     std::cout<<"Type your player name: \n";    
     std::cin>>player_name;
@@ -59,17 +59,25 @@ Player* setupPlayer()
 
     
     std::cin>>choose;
+    std::shared_ptr<Player> player=nullptr;
     switch (choose)
     {
     case 1:
-    player_type="Warrior";
-    break;
+        player_typename="Warrior";
+        player =  std::make_shared<Warrior>(player_name);;
+        player->player_type = Player_type::warior; 
+       
+        break;
     case 2:
-     player_type="Wizard";
-    break;
+        player_typename="Wizard";
+        player = std::make_shared<Wizard>(player_name);
+        player->player_type = Player_type::wizard;        
+        break;
     case 3:
-     player_type="Rogue";
-    
+        player_typename="Rogue";
+        player = std::make_shared<Rogue>(player_name);
+        player->player_type = Player_type::rogue;        
+        break;
     default:
     std::cout<<"You must type 1, 2, or 3 \n";
         break;
@@ -79,37 +87,13 @@ Player* setupPlayer()
     std::cout << "\033[2J\033[1;1H";//-clear screen
     //insert clear screen+press any key to continue
 
-    std::cout<<"Hello "<< player_type<<"-"<<player_name<<std::endl;
+    std::cout<<"Hello "<< player_typename<<"-"<<player_name<<std::endl;
 
     std::cout<<"press any key to continue\n";
     std::cin.get();
     std::cout << "\033[2J\033[1;1H";//-clear screen
+return player;  
 
-    Player* the_player;
-
-    if(player_type == "Wizard")
-    {
-        Player* player = new Wizard(player_name);
-        player->player_type = Player_type::wizard;
-        //return player;
-        the_player=player;
-    }
-    else if(player_type == "Warrior")
-    {
-        Player* player = new Warrior(player_name);
-         player->player_type = Player_type::warior;
-    
-        //return player;
-        the_player=player;
-    }
-    else if (player_type=="Rogue")
-    {
-        Player* player = new Rogue(player_name);
-        player->player_type = Player_type::rogue;
-        //return player;
-        the_player=player;
-    }
-   return the_player;
 }
 
 std::string roadChosen;
@@ -172,38 +156,61 @@ bool chestOpen()
 return openChest;
 }
 
-Enemy* createEnemy()
+/*Enemy* createEnemy()
 {
-    Enemy* the_enemy;
+    Enemy* enemy=nullptr;
     srand(time(0));
     Enemy_type enemy_type=(Enemy_type)(rand()%3);
 
     if (enemy_type== Enemy_type::Troll)
     {
-        Enemy* enemy=new Troll();
-        the_enemy=enemy;
+        enemy=new Troll();
+      
         std::cout<<"Troll created"<<std::endl;
     }
 
     else if (enemy_type== Enemy_type::Orc)
     {
-        Enemy* enemy=new Orc();
-        the_enemy=enemy;
+        enemy=new Orc();
+       
         std::cout<<"Orc created"<<std::endl;
     }
 
     else if (enemy_type== Enemy_type::Warlock)
     {
-        Enemy* enemy=new Warlock();
-        the_enemy=enemy;
+        enemy=new Warlock();
+       
         std::cout<<"Warlock created"<<std::endl;
     }
    
-return the_enemy;
+return enemy;
+}*/
+
+
+std::shared_ptr<Enemy> createEnemy()
+{
+    std::shared_ptr<Enemy> enemy;
+    srand(time(0));
+    Enemy_type enemy_type = static_cast<Enemy_type>(rand() % 3);
+
+    if (enemy_type == Enemy_type::Troll)
+    {
+        enemy = std::make_shared<Troll>();
+        std::cout << "Troll created" << std::endl;
+    }
+    else if (enemy_type == Enemy_type::Orc)
+    {
+        enemy = std::make_shared<Orc>();
+        std::cout << "Orc created" << std::endl;
+    }
+    else if (enemy_type == Enemy_type::Warlock)
+    {
+        enemy = std::make_shared<Warlock>();
+        std::cout << "Warlock created" << std::endl;
+    }
+
+    return enemy;
 }
-
-
-
 
 
 
