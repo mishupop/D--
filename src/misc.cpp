@@ -97,6 +97,12 @@ return player;
 }
 
 std::string roadChosen;
+enum RoadTo
+{Village=1,
+Forest,
+Cave
+};
+RoadTo roadTo=Village;
 void crossRoads()
 {
     int chooseRoad;
@@ -112,14 +118,16 @@ void crossRoads()
     {
         case 1:
         roadChosen="village";
+        roadTo=RoadTo::Village;
         
         break;
         case 2:
         roadChosen="forest";
-        
+        roadTo=RoadTo::Forest;
         break;
         case 3:
         roadChosen="cave";
+        roadTo=RoadTo::Cave;
         
         default:
         std::cout<<"You must type 1, 2, or 3 \n";
@@ -144,10 +152,16 @@ bool chestOpen()
     std::cin>>doYouOpen;
 
     if(doYouOpen == 'y')
-    openChest=true;
+    {
+        openChest=true;
+    std::cout<<"You opened the chest!!!\n";
+    std::cout<<"But what do you find inside it? \n";
+    }
     else if (doYouOpen == 'n')
+    {
     openChest=false;
-
+    std::cout<<"You continue on your journey. \n";
+    }
     std::cout<<"press any key to continue\n";
     std::cin.get();
     std::cout << "\033[2J\033[1;1H";//-clear screen
@@ -182,6 +196,38 @@ std::shared_ptr<Enemy> createEnemy()
     return enemy;
 }
 
+void theBattle()
+{
+    switch (roadTo)
+    {
+        case Village:
+        {
+            std::cout<<"enemy attacks first\n";
+        }
+        case Forest:
+        {
+            std::cout<<"player attacks first\n";
+        }
+        case Cave:
+        {
+            int randomAttack=std::rand()%2;
+            switch (randomAttack)
+            {
+                case 0:
+                {
+                    std::cout<<"player attacks first\n";
+                }
+                case 1:
+                {
+                    std::cout<<"enemy attacks first\n";
+                }
+            }
+
+
+        }
+
+    }
+}
 
 
 

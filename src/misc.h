@@ -30,6 +30,15 @@ bool chestOpen();
 
 std::shared_ptr<Enemy> createEnemy();
 
+void theBattle();
+
+
+
+
+
+
+
+
 
 
 #endif
