@@ -3,6 +3,7 @@
 Enemy::Enemy()
 {
 std::cout<<"enemy created"<<std::endl;
+++count;
 }
 
 Enemy::~Enemy()

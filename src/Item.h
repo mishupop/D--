@@ -47,12 +47,15 @@ std::string getitemName()
     return m_itemName;
 }
 
+int getItemCount(){return count;}
+
 private:
  int m_attackPower;
     int m_magicPower;
     int m_defence;
     std::string m_itemType;
     std::string m_itemName;
+    int count=0;
 };
 using ItemPtr = std::shared_ptr<Item>;
 #endif

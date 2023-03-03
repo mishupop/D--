@@ -13,6 +13,7 @@ m_attackPower=attackPower;
 m_magicPower=magicPower;
 m_defence=defence;
 std::cout<<"Item created"<<std::endl;
+++count;
 
 }
 

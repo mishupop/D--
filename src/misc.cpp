@@ -1,6 +1,16 @@
 #include "misc.h"
 
-
+ void Clear() 
+ {
+ #if defined _WIN32
+     system("cls");
+    //clrscr(); // including header file : conio.h
+ #elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__linux__)
+     system("clear");
+ #elif defined (__APPLE__)
+     system("clear");
+ #endif
+ }
 
 void aboutGame()
 {
@@ -8,9 +18,11 @@ void aboutGame()
     
        std::cout<<"Text despre joc \n"; 
        //insert clear screen+press any key to continue
-       std::cout<<"press any key to continue\n";
-    std::cin.get();
-    std::cout << "\033[2J\033[1;1H";//-clear screen
+    std::cout << "Press any key to continue...";
+    std::cout.flush();
+    getchar(); 
+    std::cout << "\033[2J\033[1;1H";
+    
 }
 
 
@@ -28,19 +40,14 @@ bool IntroScene()
     else if (decide == 'n')
     start=false;
 
-    std::cout<<"press any key to continue\n";
-    std::cin.get();
-    std::cout << "\033[2J\033[1;1H";//-clear screen
+    std::cout << "Press any key to continue...";
+    std::cout.flush(); 
+    getchar(); 
+    std::cout << "\033[2J\033[1;1H";
 
     return start;
 
-
 }
-
-
-
-
-
 
 
 std::shared_ptr<Player> setupPlayer()
@@ -82,22 +89,24 @@ std::shared_ptr<Player> setupPlayer()
     std::cout<<"You must type 1, 2, or 3 \n";
         break;
     }
-    std::cout<<"press any key to continue\n";
-    std::cin.get();
-    std::cout << "\033[2J\033[1;1H";//-clear screen
+    std::cout << "Press any key to continue...";
+    std::cout.flush();
+    getchar(); 
+    std::cout << "\033[2J\033[1;1H";
     //insert clear screen+press any key to continue
 
     std::cout<<"Hello "<< player_typename<<"-"<<player_name<<std::endl;
 
-    std::cout<<"press any key to continue\n";
-    std::cin.get();
-    std::cout << "\033[2J\033[1;1H";//-clear screen
+   std::cout << "Press any key to continue...";
+    std::cout.flush();
+    getchar(); 
+    std::cout << "\033[2J\033[1;1H";
 return player;  
 
 }
 
-std::string roadChosen;
-enum RoadTo
+std::string roadChosen;//global string to be used in other functions
+enum RoadTo //global string to be used in other functions
 {Village=1,
 Forest,
 Cave
@@ -128,7 +137,7 @@ void crossRoads()
         case 3:
         roadChosen="cave";
         roadTo=RoadTo::Cave;
-        
+        break;
         default:
         std::cout<<"You must type 1, 2, or 3 \n";
         break;
@@ -136,10 +145,10 @@ void crossRoads()
     }
     
     std::cout<<"You chose the "<<roadChosen<<std::endl;
-    std::cout<<"press any key to continue\n";
-    std::cin.get();
-    std::cout << "\033[2J\033[1;1H";//-clear screen
-    
+    std::cout << "Press any key to continue...";
+    std::cout.flush();
+    getchar(); 
+    std::cout << "\033[2J\033[1;1H";
 }
 
 bool chestOpen()
@@ -162,9 +171,10 @@ bool chestOpen()
     openChest=false;
     std::cout<<"You continue on your journey. \n";
     }
-    std::cout<<"press any key to continue\n";
-    std::cin.get();
-    std::cout << "\033[2J\033[1;1H";//-clear screen
+     std::cout << "Press any key to continue...";
+    std::cout.flush();
+    getchar(); 
+    std::cout << "\033[2J\033[1;1H";//-clear screen--de facut cu system+contoare la obiectele create
 
 
 return openChest;
@@ -174,39 +184,46 @@ return openChest;
 std::shared_ptr<Enemy> createEnemy()
 {
     std::shared_ptr<Enemy> enemy;
-    srand(time(0));
+    
     Enemy_type enemy_type = static_cast<Enemy_type>(rand() % 3);
 
-    if (enemy_type == Enemy_type::Troll)
+    switch (enemy_type)
     {
-        enemy = std::make_shared<Troll>();
-        std::cout << "Troll created" << std::endl;
-    }
-    else if (enemy_type == Enemy_type::Orc)
-    {
-        enemy = std::make_shared<Orc>();
-        std::cout << "Orc created" << std::endl;
-    }
-    else if (enemy_type == Enemy_type::Warlock)
-    {
-        enemy = std::make_shared<Warlock>();
-        std::cout << "Warlock created" << std::endl;
+        case Enemy_type::Troll:
+            enemy = std::make_shared<Troll>();
+            std::cout << "Troll created" << std::endl;
+            break;
+        case Enemy_type::Orc:
+            enemy = std::make_shared<Orc>();
+            std::cout << "Orc created" << std::endl;
+            break;
+        case Enemy_type::Warlock:
+            enemy = std::make_shared<Warlock>();
+            std::cout << "Warlock created" << std::endl;
+            break;
+        default:
+            std::cout<<"Error when creating enemy\n";
+            break;
     }
 
     return enemy;
 }
+
 
 void theBattle()
 {
     switch (roadTo)
     {
         case Village:
+
         {
             std::cout<<"enemy attacks first\n";
+            break;
         }
         case Forest:
         {
             std::cout<<"player attacks first\n";
+            break;
         }
         case Cave:
         {
@@ -216,14 +233,16 @@ void theBattle()
                 case 0:
                 {
                     std::cout<<"player attacks first\n";
+                    break;
                 }
                 case 1:
                 {
                     std::cout<<"enemy attacks first\n";
+                    break;
                 }
             }
 
-
+        break;
         }
 
     }

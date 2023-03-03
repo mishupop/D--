@@ -39,7 +39,7 @@ int getDamage()
         return m_damage;
     }
 
-
+int getEnemyCount(){return count;}
 
 virtual void enemy_attack();
 
@@ -47,6 +47,7 @@ virtual void enemy_attack();
 private:
 int m_hp;
 int m_damage;
+int count=0;
 
 };
 

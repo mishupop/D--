@@ -64,6 +64,7 @@ ItemPtr weapon=nullptr;
 ItemPtr createChestItems();
 void CheckInventory();
 void clearInventory();
+int getPlayerCount(){return count;}
 
 protected:
 std::string m_player_name;
@@ -72,7 +73,7 @@ private:
 
 int m_health;
 int m_damage;
-
+int count=0;
 //setat de derivate
 
 };
