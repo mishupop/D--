@@ -30,7 +30,7 @@ bool chestOpen();
 
 std::shared_ptr<Enemy> createEnemy();
 
-void theBattle();
+bool theBattle(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy);
 
 
 

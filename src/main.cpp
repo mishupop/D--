@@ -27,7 +27,7 @@ srand(time(nullptr));
 std::cout<<"player count: "<<player->getPlayerCount()<<std::endl;
 std::cout<<"enemy count: "<<enemy->getEnemyCount()<<std::endl;
 std::cout<<"weapon count: "<<weapon->getItemCount()<<std::endl;
-theBattle();
+theBattle(player,enemy);
 
 
 if (weapon != nullptr)

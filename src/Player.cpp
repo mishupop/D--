@@ -184,8 +184,23 @@ void Player::CheckInventory()
 }
 
 
+
 void Player::clearInventory()
 {
     Inventory.clear();
 }
+
+int Player::totalAttackPower()
+{
+   int totalAttack=weapon->getattackPower()+this->getDamage();
+   return totalAttack;
+}
+
+int Player::totalHealth()
+{
+    int totalHealth=weapon->getdefence()+this->getHealth();
+    return totalHealth;
+}
+
+
 

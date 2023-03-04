@@ -65,6 +65,8 @@ ItemPtr createChestItems();
 void CheckInventory();
 void clearInventory();
 int getPlayerCount(){return count;}
+int totalAttackPower();
+int totalHealth();
 
 protected:
 std::string m_player_name;

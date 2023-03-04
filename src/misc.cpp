@@ -210,19 +210,39 @@ std::shared_ptr<Enemy> createEnemy()
 }
 
 
-void theBattle()
+bool theBattle(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
 {
+    int player_health=0;
+    int enemy_health=0;
+    bool you_win=false;
     switch (roadTo)
     {
         case Village:
 
         {
             std::cout<<"enemy attacks first\n";
+           
+            do 
+            {
+            player_health=player->totalHealth()-enemy->getDamage();
+            enemy_health=enemy->getHP() - player -> totalAttackPower();
+            }
+            while (player_health > 0 && enemy_health > 0);
+            bool you_win=(enemy_health<=0)? true:false;
+                
             break;
         }
         case Forest:
         {
             std::cout<<"player attacks first\n";
+            do 
+            {
+            enemy_health=enemy->getHP() - player -> totalAttackPower();
+            player_health=player->totalHealth()-enemy->getDamage();            
+            }
+            while (player_health > 0 && enemy_health > 0);
+            bool you_win=(enemy_health<=0)? true:false;
+                
             break;
         }
         case Cave:
@@ -233,11 +253,27 @@ void theBattle()
                 case 0:
                 {
                     std::cout<<"player attacks first\n";
+                    do 
+                    {
+                    enemy_health=enemy->getHP() - player -> totalAttackPower();
+                    player_health=player->totalHealth()-enemy->getDamage();            
+                    }
+                    while (player_health > 0 && enemy_health > 0);
+                    bool you_win=(enemy_health<=0)? true:false;
+                    
                     break;
                 }
                 case 1:
                 {
                     std::cout<<"enemy attacks first\n";
+                    do 
+                    {
+                    player_health=player->totalHealth()-enemy->getDamage();
+                    enemy_health=enemy->getHP() - player -> totalAttackPower();
+                    }
+                    while (player_health > 0 && enemy_health > 0);
+                    bool you_win=(enemy_health<=0)? true:false;
+                    
                     break;
                 }
             }
@@ -246,6 +282,11 @@ void theBattle()
         }
 
     }
+    if (you_win==true)
+    std::cout<<"You won!!!\n";
+    else
+    std::cout<<"The enemy won!!!\n";
+    return you_win;
 }
 
 
