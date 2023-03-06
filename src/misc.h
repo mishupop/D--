@@ -20,7 +20,7 @@ bool IntroScene();
 
 void aboutGame();
 
-
+bool restartGame();
 
 std::shared_ptr<Player> setupPlayer();
 

@@ -29,6 +29,9 @@ std::cout<<"enemy count: "<<enemy->getEnemyCount()<<std::endl;
 std::cout<<"weapon count: "<<weapon->getItemCount()<<std::endl;
 theBattle(player,enemy);
 
+if(!theBattle(player,enemy))
+std::cout<<"GAME OVER!!!\n";
+
 
 if (weapon != nullptr)
         {

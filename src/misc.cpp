@@ -27,6 +27,8 @@ void aboutGame()
 
 
 
+
+
 bool IntroScene()
 {
     char decide;
@@ -46,6 +48,28 @@ bool IntroScene()
     std::cout << "\033[2J\033[1;1H";
 
     return start;
+
+}
+
+bool restartGame()
+{
+    char decide;
+    bool restart=false;
+  
+    std::cout<<"Do you want to restart the game? type (y/n): ";
+    std::cin>>decide;
+
+    if(decide == 'y')
+    restart=true;
+    else if (decide == 'n')
+    restart=false;
+
+    std::cout << "Press any key to continue...";
+    std::cout.flush(); 
+    getchar(); 
+    std::cout << "\033[2J\033[1;1H";
+
+    return restart;
 
 }
 
@@ -227,8 +251,8 @@ bool theBattle(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
             player_health=player->totalHealth()-enemy->getDamage();
             enemy_health=enemy->getHP() - player -> totalAttackPower();
             }
-            while (player_health > 0 && enemy_health > 0);
-            bool you_win=(enemy_health<=0)? true:false;
+            while (player_health >= 0 && enemy_health >= 0);
+            you_win=(enemy_health<=0)? true:false;
                 
             break;
         }
@@ -240,8 +264,8 @@ bool theBattle(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
             enemy_health=enemy->getHP() - player -> totalAttackPower();
             player_health=player->totalHealth()-enemy->getDamage();            
             }
-            while (player_health > 0 && enemy_health > 0);
-            bool you_win=(enemy_health<=0)? true:false;
+            while (player_health >= 0 && enemy_health >= 0);
+            you_win=(enemy_health<=0)? true:false;
                 
             break;
         }
@@ -258,8 +282,8 @@ bool theBattle(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
                     enemy_health=enemy->getHP() - player -> totalAttackPower();
                     player_health=player->totalHealth()-enemy->getDamage();            
                     }
-                    while (player_health > 0 && enemy_health > 0);
-                    bool you_win=(enemy_health<=0)? true:false;
+                    while (player_health >= 0 && enemy_health >= 0);
+                    you_win=(enemy_health<=0)? true:false;
                     
                     break;
                 }
@@ -271,8 +295,8 @@ bool theBattle(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
                     player_health=player->totalHealth()-enemy->getDamage();
                     enemy_health=enemy->getHP() - player -> totalAttackPower();
                     }
-                    while (player_health > 0 && enemy_health > 0);
-                    bool you_win=(enemy_health<=0)? true:false;
+                    while (player_health >= 0 && enemy_health >= 0);
+                    you_win=(enemy_health<=0)? true:false;
                     
                     break;
                 }
@@ -282,6 +306,7 @@ bool theBattle(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
         }
 
     }
+    std::cout<<player_health<<" : "<<enemy_health<< std::endl;
     if (you_win==true)
     std::cout<<"You won!!!\n";
     else

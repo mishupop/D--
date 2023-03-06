@@ -19,6 +19,14 @@ int getattackPower()
 {
 return m_attackPower;
 }
+void setMagicPower(int magicPower)
+{
+    m_magicPower=magicPower;
+}
+int getMagicPower()
+{
+return m_magicPower;
+}
 void setDefence(int defence)
 {
     m_defence=defence;

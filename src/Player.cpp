@@ -179,6 +179,9 @@ void Player::CheckInventory()
 {
     for (auto &x:Inventory)
     {
+        x->getattackPower();
+        x->getMagicPower();
+        x->getdefence();
         std::cout<< x->getitemName() <<x<<std::endl;
     }
 }
@@ -192,13 +195,13 @@ void Player::clearInventory()
 
 int Player::totalAttackPower()
 {
-   int totalAttack=weapon->getattackPower()+this->getDamage();
+   int totalAttack = weapon->getattackPower() + weapon->getMagicPower() + this->getDamage();
    return totalAttack;
 }
 
 int Player::totalHealth()
 {
-    int totalHealth=weapon->getdefence()+this->getHealth();
+    int totalHealth = weapon->getdefence() + this->getHealth();
     return totalHealth;
 }
 
