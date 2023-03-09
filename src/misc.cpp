@@ -1,31 +1,5 @@
 #include "misc.h"
 
- void Clear() 
- {
- #if defined _WIN32
-     system("cls");
-    //clrscr(); // including header file : conio.h
- #elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__linux__)
-     system("clear");
- #elif defined (__APPLE__)
-     system("clear");
- #endif
- }
-
-void aboutGame()
-{
-  
-    
-       std::cout<<"Text despre joc \n"; 
-       //insert clear screen+press any key to continue
-    std::cout << "Press any key to continue...";
-    std::cout.flush();
-    getchar(); 
-    std::cout << "\033[2J\033[1;1H";
-    
-}
-
-
 
 
 
@@ -130,7 +104,7 @@ return player;
 }
 
 std::string roadChosen;//global string to be used in other functions
-enum RoadTo //global string to be used in other functions
+enum RoadTo //global enum to be used in other functions
 {Village=1,
 Forest,
 Cave
@@ -139,12 +113,8 @@ RoadTo roadTo=Village;
 void crossRoads()
 {
     int chooseRoad;
+    chooseRoadText();
     
-    std::cout<<"You're walking on a road and arrive at a crossroad \n";
-    std::cout<<"with three paths ahead. one leads to a village, another \n";
-    std::cout<<"to a forest and the third to a cave. \n";
-    std::cout<<" Which path will you choose? \n";
-    std::cout<<"Village -1, forest -2, cave -3 \n";
     std::cin>>chooseRoad;
 
     switch (chooseRoad)
@@ -175,13 +145,53 @@ void crossRoads()
     std::cout << "\033[2J\033[1;1H";
 }
 
+std::string roadChosen2;//global string to be used in other functions
+enum RoadTo2 //global string to be used in other functions
+{Bog=1,
+Plains,
+Mountain
+};
+RoadTo2 roadTo2=Bog;
+void crossRoads2()
+{
+    int chooseRoad;
+    
+    chooseRoad2Text();
+    std::cin>>chooseRoad;
+
+    switch (chooseRoad)
+    {
+        case 1:
+        roadChosen2="bog";
+        roadTo2=RoadTo2::Bog;
+        
+        break;
+        case 2:
+        roadChosen2="plains";
+        roadTo2=RoadTo2::Plains;
+        break;
+        case 3:
+        roadChosen2="mountain";
+        roadTo2=RoadTo2::Mountain;
+        break;
+        default:
+        std::cout<<"You must type 1, 2, or 3 \n";
+        break;
+    
+    }
+    
+    std::cout<<"You chose the "<<roadChosen2<<std::endl;
+    std::cout << "Press any key to continue...";
+    // std::cout.flush();
+    // getchar(); 
+    // std::cout << "\033[2J\033[1;1H";
+}
+
 bool chestOpen()
 {
     bool openChest=false;
     char doYouOpen;
-    std::cout<<"As you walk on the path to the "<<roadChosen<<" you come across a chest \n";
-    std::cout<<"on the side of the road. \n";
-    std::cout<<"Do you want to open it? (y/n): ";
+    chestOpenText(roadChosen);
     std::cin>>doYouOpen;
 
     if(doYouOpen == 'y')
@@ -196,9 +206,35 @@ bool chestOpen()
     std::cout<<"You continue on your journey. \n";
     }
      std::cout << "Press any key to continue...";
-    std::cout.flush();
-    getchar(); 
-    std::cout << "\033[2J\033[1;1H";//-clear screen--de facut cu system+contoare la obiectele create
+    // std::cout.flush();
+    // getchar(); 
+    // std::cout << "\033[2J\033[1;1H";//-clear screen--de facut cu system+contoare la obiectele create
+
+
+return openChest;
+}
+bool chestOpen2()
+{
+    bool openChest=false;
+    char doYouOpen;
+    chestOpenText(roadChosen2);
+    std::cin>>doYouOpen;
+
+    if(doYouOpen == 'y')
+    {
+        openChest=true;
+    std::cout<<"You opened the chest!!!\n";
+    std::cout<<"But what do you find inside it? \n";
+    }
+    else if (doYouOpen == 'n')
+    {
+    openChest=false;
+    std::cout<<"You continue on your journey. \n";
+    }
+     std::cout << "Press any key to continue...";
+    // std::cout.flush();
+    // getchar(); 
+    // std::cout << "\033[2J\033[1;1H";//-clear screen--de facut cu system+contoare la obiectele create
 
 
 return openChest;
@@ -311,9 +347,90 @@ bool theBattle(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
     std::cout<<"You won!!!\n";
     else
     std::cout<<"The enemy won!!!\n";
+    enemy.reset();
     return you_win;
 }
 
+bool theBattle2(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
+{
+    int player_health=0;
+    int enemy_health=0;
+    bool you_win=false;
+    switch (roadTo2)
+    {
+        case Bog:
+
+        {
+            std::cout<<"enemy attacks first\n";
+           
+            do 
+            {
+            player_health=player->totalHealth()-enemy->getDamage();
+            enemy_health=enemy->getHP() - player -> totalAttackPower();
+            }
+            while (player_health >= 0 && enemy_health >= 0);
+            you_win=(enemy_health<=0)? true:false;
+                
+            break;
+        }
+        case Mountain:
+        {
+            std::cout<<"player attacks first\n";
+            do 
+            {
+            enemy_health=enemy->getHP() - player -> totalAttackPower();
+            player_health=player->totalHealth()-enemy->getDamage();            
+            }
+            while (player_health >= 0 && enemy_health >= 0);
+            you_win=(enemy_health<=0)? true:false;
+                
+            break;
+        }
+        case Plains:
+        {
+            int randomAttack=std::rand()%2;
+            switch (randomAttack)
+            {
+                case 0:
+                {
+                    std::cout<<"player attacks first\n";
+                    do 
+                    {
+                    enemy_health=enemy->getHP() - player -> totalAttackPower();
+                    player_health=player->totalHealth()-enemy->getDamage();            
+                    }
+                    while (player_health >= 0 && enemy_health >= 0);
+                    you_win=(enemy_health<=0)? true:false;
+                    
+                    break;
+                }
+                case 1:
+                {
+                    std::cout<<"enemy attacks first\n";
+                    do 
+                    {
+                    player_health=player->totalHealth()-enemy->getDamage();
+                    enemy_health=enemy->getHP() - player -> totalAttackPower();
+                    }
+                    while (player_health >= 0 && enemy_health >= 0);
+                    you_win=(enemy_health<=0)? true:false;
+                    
+                    break;
+                }
+            }
+
+        break;
+        }
+
+    }
+    std::cout<<player_health<<" : "<<enemy_health<< std::endl;
+    if (you_win==true)
+    std::cout<<"You won!!!\n";
+    else
+    std::cout<<"The enemy won!!!\n";
+    enemy.reset();
+    return you_win;
+}
 
 
 

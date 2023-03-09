@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-
+#find_package(SFML 2.5 COMPONENTS system window graphics audio REQUIRED)
 set(PROJECT_N D++)
 project(${PROJECT_N} VERSION 1.0)
 
@@ -35,3 +35,5 @@ endforeach()
 add_executable(${PROJECT_N} ${SRCS})
 
 target_include_directories(${PROJECT_N} PUBLIC include)
+#target_link_libraries(D++ sfml-system sfml-window sfml-graphics sfml-audio)
+#set(CMAKE_POSITION_INDEPENDENT_CODE ON)

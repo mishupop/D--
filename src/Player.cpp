@@ -27,45 +27,7 @@ void Player::Attack()
     std::cout<<"Player attacks \n";
 }
 
- /*ItemPtr Player::createChestItems()
-{
-   weapon=nullptr;
-    
-    switch (getPlayerType())
-    {
-    case Player_type::warior:
-        {
-       ItemPtr weapon = std::make_shared<Item>("attack", "battle_axe", 30, 0, 5);
-        Inventory.push_back(weapon);
-        std::cout<<"It's the Battle Axe of Gregor the Destroyer!!! \n";
-        std::cout<<"Axe is added to inventory"<<std::endl;
-        //weapon=battle_axe;
-        break;
-        }
-    case Player_type::wizard:
-        {
-        ItemPtr weapon = std::make_shared<Item>("magic","magic_staff",10,30,10);
-        Inventory.push_back(weapon);
-        std::cout<<"It's the magic staff of Killtermoor!!! \n";
-        std::cout<<"Staff is added to inventory"<<std::endl;
-        //weapon=magic_staff;
-        break;
-        }
-    case Player_type::rogue:
-        {
-        ItemPtr weapon = std::make_shared<Item> ("attack","machete",50,0,10);
-        Inventory.push_back(weapon);
-        std::cout<<"It's the machete of Yaangstllafaiyi!!! \n";
-        std::cout<<"Machete is added to inventory"<<std::endl;
-        //weapon=machete;
-        return weapon;
-        break;
-        }
-        
-    }
-    
-     return weapon;
-}*/
+ 
 
 ItemPtr Player::createChestItems() {
     weapon = nullptr;
@@ -195,13 +157,21 @@ void Player::clearInventory()
 
 int Player::totalAttackPower()
 {
-   int totalAttack = weapon->getattackPower() + weapon->getMagicPower() + this->getDamage();
-   return totalAttack;
+   int totalAttack = this->getDamage();
+   for (auto weapon:Inventory)
+   {
+        totalAttack +=weapon->getattackPower() + weapon->getMagicPower();
+   }
+   return totalAttack;//
 }
 
 int Player::totalHealth()
 {
-    int totalHealth = weapon->getdefence() + this->getHealth();
+    int totalHealth = this->getHealth();
+    for (auto weapon:Inventory)
+    {
+        totalHealth +=weapon->getdefence();
+    }
     return totalHealth;
 }
 
