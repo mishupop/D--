@@ -6,13 +6,19 @@
 
 int main(int argc, char const *argv[])
 {
+    sf::Music menu, exploring, battle; 
+   menu.openFromFile("Main_Menu.wav");
+    menu.play();
+       menu.setLoop(true); 
  aboutTheGame();
  
  if (IntroScene())
  { 
-    //   music.openFromFile("Main_Menu.wav");
-    //   music.play();
-    //   music.setLoop(true);
+    
+    menu.pause();
+    exploring.openFromFile("Exploring.wav");
+    exploring.play();
+    exploring.setLoop(true);
     std::shared_ptr<Player> player=setupPlayer();
  
 
@@ -24,11 +30,14 @@ int main(int argc, char const *argv[])
         weapon=player->createChestItems();     
         }
     
-
-        std::shared_ptr<Enemy> enemy=createEnemy();
-        std::cout<<"player count: "<<player->getPlayerCount()<<std::endl;
-        std::cout<<"enemy count: "<<enemy->getEnemyCount()<<std::endl;
-        std::cout<<"weapon count: "<<weapon->getItemCount()<<std::endl;
+    exploring.pause();
+    battle.openFromFile("BattleFinal.wav");
+    battle.play();
+    battle.setLoop(true);
+    std::shared_ptr<Enemy> enemy=createEnemy();
+        // std::cout<<"player count: "<<player->getPlayerCount()<<std::endl;
+        // std::cout<<"enemy count: "<<enemy->getEnemyCount()<<std::endl;
+        // std::cout<<"weapon count: "<<weapon->getItemCount()<<std::endl;
 
 
     if(!theBattle(player,enemy))
@@ -37,17 +46,18 @@ int main(int argc, char const *argv[])
     }
     else
     {
+    battle.stop(); 
+    exploring.play();   
     crossRoads2();
-    ItemPtr weapon2 = nullptr;
+    ItemPtr weapon = nullptr;
     srand(time(nullptr));
         if (chestOpen2())
         {   
-        weapon2=player->createChestItems();     
+        weapon=player->createChestItems();     
         }
+        battle.play(); 
         std::shared_ptr<Enemy> enemy=createEnemy();
-        std::cout<<"player count: "<<player->getPlayerCount()<<std::endl;
-        std::cout<<"enemy count: "<<enemy->getEnemyCount()<<std::endl;
-        std::cout<<"weapon count: "<<weapon->getItemCount()<<std::endl;
+       
         if(!theBattle2(player,enemy))
         {
     std::cout<<"GAME OVER!!!\n";
@@ -55,10 +65,9 @@ int main(int argc, char const *argv[])
 
     }
 
-
+battle.stop();
 if (weapon != nullptr)
         {
-        player->CheckInventory();
         player->clearInventory();
         }
   

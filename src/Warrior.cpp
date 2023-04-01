@@ -3,7 +3,7 @@
 
 Warrior::~Warrior()
 {
-std::cout<<"warrior deletetd\n";
+//std::cout<<"warrior deletetd\n";
 }
 
 void Warrior::Attack()
@@ -16,5 +16,5 @@ Warrior::Warrior(std::string name)
     setHealth(50);
     setDamage(34);
     this->player_type=Player_type::warior;
-   std::cout<<"warrior created\n"; 
+   //std::cout<<"warrior created\n"; 
 }

@@ -7,7 +7,7 @@
 #include <vector>
 #include <memory>
 #include "Item.h"
-//#include "Misc.h" aici era problema
+#include "texts.h"
 
 
 enum class Player_type{
@@ -67,6 +67,7 @@ void clearInventory();
 int getPlayerCount(){return count;}
 int totalAttackPower();
 int totalHealth();
+int resetHealthAndDamage();
 
 protected:
 std::string m_player_name;

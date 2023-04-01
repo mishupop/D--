@@ -30,6 +30,7 @@ void crossRoads();
 void crossRoads2();
 
 bool chestOpen();
+
 bool chestOpen2();
 
 std::shared_ptr<Enemy> createEnemy();

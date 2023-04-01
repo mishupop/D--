@@ -12,7 +12,7 @@ m_itemName=itemName;
 m_attackPower=attackPower;
 m_magicPower=magicPower;
 m_defence=defence;
-std::cout<<"Item created"<<std::endl;
+//std::cout<<"Item created"<<std::endl;
 ++count;
 
 }
@@ -20,7 +20,7 @@ std::cout<<"Item created"<<std::endl;
 
 Item::~Item()
 {
-std::cout<<"Item deleted"<<std::endl;
+//std::cout<<"Item deleted"<<std::endl;
 }
 
 

@@ -4,7 +4,7 @@
 
 Rogue::~Rogue()
 {
-std::cout<<"rogue deleted\n";
+//std::cout<<"rogue deleted\n";
 }
 
 void Rogue::Attack()
@@ -19,7 +19,7 @@ Rogue::Rogue(std::string name)
     setHealth(70);
     setDamage(55);
     this->player_type=Player_type::rogue;
-   std::cout<<"rogue created\n"; 
+   //std::cout<<"rogue created\n"; 
 }
 
 
