@@ -19,7 +19,7 @@ bool IntroScene()
     std::cout << "Press any key to continue...";
     std::cout.flush(); 
     getchar(); 
-    std::cout << "\033[2J\033[1;1H";
+    Clear();
 
     return start;
 
@@ -41,7 +41,7 @@ bool restartGame()
     std::cout << "Press any key to continue...";
     std::cout.flush(); 
     getchar(); 
-    std::cout << "\033[2J\033[1;1H";
+    Clear();
 
     return restart;
 
@@ -64,6 +64,11 @@ std::shared_ptr<Player> setupPlayer()
 
     
     std::cin>>choose;
+
+    std::cout << "Press any key to continue...";
+    std::cout.flush();
+    getchar(); 
+    Clear();
     std::shared_ptr<Player> player=nullptr;
     switch (choose)
     {
@@ -71,34 +76,32 @@ std::shared_ptr<Player> setupPlayer()
         player_typename="Warrior";
         player =  std::make_shared<Warrior>(player_name);;
         player->player_type = Player_type::warior; 
-       
+       warriorText();
         break;
     case 2:
         player_typename="Wizard";
         player = std::make_shared<Wizard>(player_name);
-        player->player_type = Player_type::wizard;        
+        player->player_type = Player_type::wizard;   
+        wizardText();     
         break;
+        
     case 3:
         player_typename="Rogue";
         player = std::make_shared<Rogue>(player_name);
-        player->player_type = Player_type::rogue;        
+        player->player_type = Player_type::rogue; 
+        rogueText();       
         break;
     default:
     std::cout<<"You must type 1, 2, or 3 \n";
         break;
     }
-    std::cout << "Press any key to continue...";
-    std::cout.flush();
-    getchar(); 
-    std::cout << "\033[2J\033[1;1H";
-    //insert clear screen+press any key to continue
-
+    
     std::cout<<"Hello "<< player_typename<<"-"<<player_name<<std::endl;
 
    std::cout << "Press any key to continue...";
     std::cout.flush();
     getchar(); 
-    std::cout << "\033[2J\033[1;1H";
+    Clear();
 return player;  
 
 }
@@ -116,7 +119,9 @@ void crossRoads()
     chooseRoadText();
     
     std::cin>>chooseRoad;
-
+    std::cout.flush();
+    getchar(); 
+    Clear();
     switch (chooseRoad)
     {
         case 1:
@@ -139,14 +144,30 @@ void crossRoads()
     }
     
     std::cout<<"You chose the "<<roadChosen<<std::endl;
+     switch (chooseRoad)
+    {
+        case 1:
+        aboutTheVillage();        
+        break;
+        case 2:
+        aboutTheForest();
+        break;
+        case 3:
+        aboutTheCave();
+        break;
+        default:
+        std::cout<<"You must type 1, 2, or 3 \n";
+        break;
+    
+    }
     std::cout << "Press any key to continue...";
-    std::cout.flush();
-    getchar(); 
-    std::cout << "\033[2J\033[1;1H";
+     std::cout.flush();
+     getchar(); 
+     Clear();
 }
 
 std::string roadChosen2;//global string to be used in other functions
-enum RoadTo2 //global string to be used in other functions
+enum RoadTo2 //global enum to be used in other functions
 {Bog=1,
 Plains,
 Mountain
@@ -158,7 +179,9 @@ void crossRoads2()
     
     chooseRoad2Text();
     std::cin>>chooseRoad;
-
+    std::cout.flush();
+    getchar(); 
+    Clear();
     switch (chooseRoad)
     {
         case 1:
@@ -181,10 +204,26 @@ void crossRoads2()
     }
     
     std::cout<<"You chose the "<<roadChosen2<<std::endl;
+     switch (chooseRoad)
+    {
+        case 1:
+        aboutTheBog();        
+        break;
+        case 2:
+        aboutTheSteppe();
+        break;
+        case 3:
+        aboutTheMountain();
+        break;
+        default:
+        std::cout<<"You must type 1, 2, or 3 \n";
+        break;
+    
+    }
     std::cout << "Press any key to continue...";
-    // std::cout.flush();
-    // getchar(); 
-    // std::cout << "\033[2J\033[1;1H";
+    std::cout.flush();
+    getchar(); 
+    Clear();
 }
 
 bool chestOpen()
@@ -206,13 +245,15 @@ bool chestOpen()
     std::cout<<"You continue on your journey. \n";
     }
      std::cout << "Press any key to continue...";
-    // std::cout.flush();
-    // getchar(); 
-    // std::cout << "\033[2J\033[1;1H";//-clear screen--de facut cu system+contoare la obiectele create
+     std::cout.flush();
+     getchar(); 
+    Clear();
 
 
 return openChest;
 }
+
+
 bool chestOpen2()
 {
     bool openChest=false;
@@ -232,9 +273,9 @@ bool chestOpen2()
     std::cout<<"You continue on your journey. \n";
     }
      std::cout << "Press any key to continue...";
-    // std::cout.flush();
-    // getchar(); 
-    // std::cout << "\033[2J\033[1;1H";//-clear screen--de facut cu system+contoare la obiectele create
+     std::cout.flush();
+     getchar(); 
+    Clear();
 
 
 return openChest;
@@ -265,7 +306,9 @@ std::shared_ptr<Enemy> createEnemy()
             std::cout<<"Error when creating enemy\n";
             break;
     }
-
+std::cout.flush();
+     getchar(); 
+    Clear();
     return enemy;
 }
 
@@ -342,12 +385,13 @@ bool theBattle(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
         }
 
     }
-    std::cout<<player_health<<" : "<<enemy_health<< std::endl;
+   
     if (you_win==true)
     std::cout<<"You won!!!\n";
     else
     std::cout<<"The enemy won!!!\n";
     enemy.reset();
+
     return you_win;
 }
 
@@ -429,6 +473,7 @@ bool theBattle2(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
     else
     std::cout<<"The enemy won!!!\n";
     enemy.reset();
+  
     return you_win;
 }
 
@@ -437,4 +482,3 @@ bool theBattle2(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
 
 
 
-// wav-urilr tre sa fie in build...daca is in src tre schimbat path-ul
