@@ -12,3 +12,8 @@ Orc::~Orc()
 {
 //std::cout<<"Enemy orc deleted"<<std::endl;
 }
+
+void Orc::enemy_attack()
+{
+    std::cout<<"An orc attacks!!! \n";
+}

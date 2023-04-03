@@ -9,6 +9,8 @@ class Troll:public Enemy
 public:
     Troll();
     ~Troll();
+    
+void enemy_attack();
 
 private:
 

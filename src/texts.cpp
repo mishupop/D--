@@ -143,32 +143,59 @@ void chestOpenText(std::string roadTo)
     std::cout<<"Do you want to open it? (y/n): ";
 }
 
-void warriorWeaponsText()
-{
-    std::cout<<"Text about weapons\n";
+void warriorWeaponsText() {
+    std::cout << "As a warrior, you have access to three powerful weapons:\n\n";
+    std::cout << "The Battle Axe of Gregor the Destroyer - a massive, two-handed weapon that can cleave through armor and bone with ease.\n\n";
+    std::cout << "The Longsword of Eustace the Quick - a fast and deadly weapon that can strike with lightning speed and precision.\n\n";
+    std::cout << "The Warhammer of Throgg the Destructor - a heavy, blunt weapon that can crush even the toughest opponents with a single blow.\n\n";
 }
 
-void wizardWeaponsText()
-{
-    std::cout<<"Text about weapons\n";
+
+void wizardWeaponsText() {
+    std::cout << "As a wizard, you wield powerful arcane magic, but you also have access to three potent magic weapons:\n\n";
+    std::cout << "The Magic Staff of Killtermoor - a staff imbued with ancient magic, capable of unleashing devastating spells and incantations.\n\n";
+    std::cout << "The Wand of Eldamar - a wand that channels magic with incredible precision and focus, allowing for quick and deadly spellcasting.\n\n";
+    std::cout << "The Sorcerer Staff of Zalthor - a staff infused with the power of dark magic, granting the wielder control over the elements and the ability to summon otherworldly creatures.\n\n";
 }
+
 
 void rogueWeaponsText()
 {
-    std::cout<<"Text about weapons\n";
+    std::cout << "Rogues prefer weapons that are agile and allow for quick, deadly strikes. \n\n";
+    std::cout << "The Machete of Yaangstllafaiyi is a curved, single-edged blade that can be used for both chopping and slicing. It's perfect for navigating dense jungles and taking down enemies quickly.\n\n";
+    std::cout << "The Dagger of Kethria is a small, but deadly weapon that can be concealed easily. Its sharp blade allows for swift, precise attacks that can take an enemy down before they even realize they've been hit.\n\n";
+    std::cout << "The Spear of Vaelen is a versatile weapon that can be used for both thrusting and throwing. It's a favorite of rogues who like to keep their enemies at a distance while still delivering deadly strikes.\n\n";
 }
 
-void enemyText()
-{
-   std::cout<<"Text about enemies\n"; 
+
+void enemyText() {
+    std::cout << "As you journey through Precambria, you will encounter many foes. The three main enemies you will face are Orcs, Trolls, and Warlocks.\n";
+    std::cout << "Orcs are brutish and aggressive, with powerful builds and a ferocious fighting style. They are often found in groups and can be difficult to take down.\n";
+    std::cout << "Trolls, on the other hand, are massive and lumbering creatures. They are slow-moving but incredibly strong, and can take a lot of damage before they are defeated.\n";
+    std::cout << "Finally, there are the Warlocks. These evil spellcasters wield dark magic and can be extremely dangerous if not dealt with quickly. They are often found leading groups of other enemies.\n";
 }
 
-void battleText()
-{
-    std::cout<<"Text about the battle\n";
+
+void battleText() {
+    std::cout << "You are facing an enemy that threatens to invade Precambria. You must defeat them to warn the people and gather support for the upcoming battle. The fate of the land rests on your shoulders.\n";
+    std::cout.flush();
+    getchar(); 
+    Clear();
 }
 
-void afterBattleText()
+
+void afterBattleText() 
 {
-    std::cout<<"Text after battle\n";
+std::cout << "Congratulations, you have defeated the enemy! Your bravery and skill have saved the people of Precambria from further harm. \n";
+std::cout << "As you continue on your journey, you meet other travelers who have heard of your deeds and are inspired by your courage. They pledge their support to your cause and join you on your mission to save the realm. \n";
+std::cout << "Together, you gather more and more supporters and spread the word of your heroic deeds throughout the land. The people of Precambria look to you as their champion, their hope for a brighter future. \n";
+std::cout << "With your new allies by your side, you march forward to face the evil Emperor Zirconarr and his minions. The fate of Precambria rests in your hands. Will you emerge victorious and save the land from darkness, or will you falter and succumb to the tyranny of the enemy? The choice is yours. \n";
 }
+
+void defeatedText() 
+{
+  std::cout << "You have been defeated by the enemy. Your journey ends here.\n";
+  std::cout << "The people of Precambria will have to face the impending invasion alone.\n";
+  std::cout << "Better luck next time, adventurer.\n";
+}
+

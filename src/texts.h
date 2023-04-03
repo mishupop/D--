@@ -22,3 +22,4 @@ void rogueWeaponsText();
 void enemyText();
 void battleText();
 void afterBattleText();
+void defeatedText();

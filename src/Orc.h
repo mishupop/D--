@@ -8,6 +8,7 @@ class Orc:public Enemy
 public:
     Orc();
     ~Orc();
+void enemy_attack();
 
 private:
 

@@ -9,6 +9,8 @@ public:
     Warlock();
     ~Warlock();
 
+void enemy_attack();
+
 private:
 
 };

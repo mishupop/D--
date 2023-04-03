@@ -50,7 +50,7 @@ ItemPtr Player::createChestItems() {
                     weapon = std::make_shared<Item>("attack", "longsword", 25, 0, 3);
                     Inventory.push_back(weapon);
                     warriorWeaponsText();
-                    std::cout << "It's the Longsword of Sir Eaustace the Quick!!! \n";
+                    std::cout << "It's the Longsword of Eaustace the Quick!!! \n";
                     std::cout << "Longsword is added to inventory" << std::endl;
                     break;
                 }
@@ -122,7 +122,7 @@ ItemPtr Player::createChestItems() {
                     weapon = std::make_shared<Item> ("attack","dagger",43,0,0);
                     Inventory.push_back(weapon);
                     rogueWeaponsText();
-                    std::cout<<"It's the dagger of Yaangstllafaiyi!!! \n";
+                    std::cout<<"It's the dagger of Kethria!!! \n";
                     std::cout<<"Dagger is added to inventory"<<std::endl;                 
                     break;
                 }
@@ -131,7 +131,7 @@ ItemPtr Player::createChestItems() {
                     weapon = std::make_shared<Item> ("attack","spear",55,0,5);
                     Inventory.push_back(weapon);
                     rogueWeaponsText();
-                    std::cout<<"It's the spear of Yaangstllafaiyi!!! \n";
+                    std::cout<<"It's the spear of Vaeleni!!! \n";
                     std::cout<<"Spear is added to inventory"<<std::endl;               
                     break;
                 }
@@ -140,7 +140,9 @@ ItemPtr Player::createChestItems() {
         }
         
     }
-
+    std::cout.flush();
+    getchar(); 
+    Clear();
     return weapon;
     
 }
@@ -183,10 +185,7 @@ int Player::totalHealth()
     return totalHealth;
 }
 
-// int Player::resetHealthAndDamage()
-// {
-    
-// }
+
 
 
 

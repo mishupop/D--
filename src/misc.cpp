@@ -190,7 +190,7 @@ void crossRoads2()
         
         break;
         case 2:
-        roadChosen2="plains";
+        roadChosen2="steppe";
         roadTo2=RoadTo2::Plains;
         break;
         case 3:
@@ -287,7 +287,7 @@ std::shared_ptr<Enemy> createEnemy()
     std::shared_ptr<Enemy> enemy;
     
     Enemy_type enemy_type = static_cast<Enemy_type>(rand() % 3);
-
+    enemyText();
     switch (enemy_type)
     {
         case Enemy_type::Troll:
@@ -323,7 +323,7 @@ bool theBattle(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
         case Village:
 
         {
-            std::cout<<"enemy attacks first\n";
+            enemy->enemy_attack();
            
             do 
             {
@@ -337,7 +337,7 @@ bool theBattle(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
         }
         case Forest:
         {
-            std::cout<<"player attacks first\n";
+            player->Attack();
             do 
             {
             enemy_health=enemy->getHP() - player -> totalAttackPower();
@@ -355,7 +355,7 @@ bool theBattle(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
             {
                 case 0:
                 {
-                    std::cout<<"player attacks first\n";
+                    player->Attack();
                     do 
                     {
                     enemy_health=enemy->getHP() - player -> totalAttackPower();
@@ -368,7 +368,7 @@ bool theBattle(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
                 }
                 case 1:
                 {
-                    std::cout<<"enemy attacks first\n";
+                    enemy->enemy_attack();
                     do 
                     {
                     player_health=player->totalHealth()-enemy->getDamage();
@@ -387,9 +387,9 @@ bool theBattle(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
     }
    
     if (you_win==true)
-    std::cout<<"You won!!!\n";
+    afterBattleText();
     else
-    std::cout<<"The enemy won!!!\n";
+    defeatedText();
     enemy.reset();
 
     return you_win;
@@ -405,7 +405,7 @@ bool theBattle2(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
         case Bog:
 
         {
-            std::cout<<"enemy attacks first\n";
+            enemy->enemy_attack();
            
             do 
             {
@@ -419,7 +419,7 @@ bool theBattle2(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
         }
         case Mountain:
         {
-            std::cout<<"player attacks first\n";
+            player->Attack();
             do 
             {
             enemy_health=enemy->getHP() - player -> totalAttackPower();
@@ -437,7 +437,7 @@ bool theBattle2(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
             {
                 case 0:
                 {
-                    std::cout<<"player attacks first\n";
+                    player->Attack();
                     do 
                     {
                     enemy_health=enemy->getHP() - player -> totalAttackPower();
@@ -450,7 +450,7 @@ bool theBattle2(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
                 }
                 case 1:
                 {
-                    std::cout<<"enemy attacks first\n";
+                    enemy->enemy_attack();
                     do 
                     {
                     player_health=player->totalHealth()-enemy->getDamage();
@@ -469,9 +469,9 @@ bool theBattle2(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
     }
     std::cout<<player_health<<" : "<<enemy_health<< std::endl;
     if (you_win==true)
-    std::cout<<"You won!!!\n";
+    afterBattleText();
     else
-    std::cout<<"The enemy won!!!\n";
+    defeatedText();
     enemy.reset();
   
     return you_win;

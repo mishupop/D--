@@ -12,3 +12,8 @@ Troll::~Troll()
 {
 //std::cout<<"Enemy troll deleted"<<std::endl;
 }
+
+void Troll::enemy_attack()
+{
+    std::cout<<"A troll attacks!!!\n";
+}

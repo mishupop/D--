@@ -3,7 +3,9 @@
 Wizard::Wizard(std::string name)
 :Player(name)
 {
-    //std::cout<<"wizard created\n";
+    setHealth(50);
+    setDamage(44);
+    this->player_type=Player_type::wizard;
 }
 
 Wizard::~Wizard()
@@ -13,9 +15,7 @@ Wizard::~Wizard()
 
 void Wizard::Attack()
 {
-    setHealth(50);
-    setDamage(44);
-    this->player_type=Player_type::wizard;
-    std::cout<<"A wizard attacks \n";
+    
+    std::cout<<"The wizard attacks \n";
 }
 

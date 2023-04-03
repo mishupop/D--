@@ -8,7 +8,7 @@ Warrior::~Warrior()
 
 void Warrior::Attack()
 {
-    std::cout<<"A warrior attacks \n";
+    std::cout<<"The warrior attacks \n";
 }
 Warrior::Warrior(std::string name)
 :Player(name)

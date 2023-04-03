@@ -12,3 +12,8 @@ Warlock::~Warlock()
 {
 //std::cout<<"Enemy warlock deleted"<<std::endl;
 }
+
+void Warlock::enemy_attack()
+{
+    std::cout<<"A warlock attacks!!!\n";
+}

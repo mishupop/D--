@@ -34,12 +34,13 @@ int main(int argc, char const *argv[])
     battle.openFromFile("BattleFinal.wav");
     battle.play();
     battle.setLoop(true);
+    battleText();
     std::shared_ptr<Enemy> enemy=createEnemy();
         // std::cout<<"player count: "<<player->getPlayerCount()<<std::endl;
         // std::cout<<"enemy count: "<<enemy->getEnemyCount()<<std::endl;
         // std::cout<<"weapon count: "<<weapon->getItemCount()<<std::endl;
 
-
+    battleText();
     if(!theBattle(player,enemy))
     {
     std::cout<<"GAME OVER!!!\n";
@@ -55,6 +56,7 @@ int main(int argc, char const *argv[])
         {   
         weapon=player->createChestItems();     
         }
+        battleText();
         battle.play(); 
         std::shared_ptr<Enemy> enemy=createEnemy();
        

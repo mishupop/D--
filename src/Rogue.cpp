@@ -9,7 +9,7 @@ Rogue::~Rogue()
 
 void Rogue::Attack()
 {
-    std::cout<<"A rogue attacks \n";
+    std::cout<<"The rogue attacks \n";
 }
 
 
