@@ -58,7 +58,7 @@ std::cout << "distance, making them the ideal choice for players who prefer a mo
 
 void rogueText()
 {
-    // Print the text for the rogue class using multiple std::cout statements
+    
 std::cout << "Rogues are stealthy and cunning, using their agility and quick thinking to outmaneuver their enemies. ";
 std::cout << "Hailing from the forests and mountains of Precambria, they have spent years honing their skills in ";
 std::cout << "survival, hunting, and thievery. With their high dexterity and critical hit rate, rogues excel at ";

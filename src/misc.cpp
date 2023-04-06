@@ -292,15 +292,15 @@ std::shared_ptr<Enemy> createEnemy()
     {
         case Enemy_type::Troll:
             enemy = std::make_shared<Troll>();
-            std::cout << "Troll created" << std::endl;
+            //std::cout << "Troll created" << std::endl;
             break;
         case Enemy_type::Orc:
             enemy = std::make_shared<Orc>();
-            std::cout << "Orc created" << std::endl;
+            //std::cout << "Orc created" << std::endl;
             break;
         case Enemy_type::Warlock:
             enemy = std::make_shared<Warlock>();
-            std::cout << "Warlock created" << std::endl;
+            //std::cout << "Warlock created" << std::endl;
             break;
         default:
             std::cout<<"Error when creating enemy\n";
