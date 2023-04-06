@@ -47,7 +47,7 @@ bool restartGame()
 
 }
 
-
+//function that returns a pointer to the player object/functie ce returneaza un pointer la un obiect de player
 std::shared_ptr<Player> setupPlayer()
 
 {
@@ -106,13 +106,15 @@ return player;
 
 }
 
-std::string roadChosen;//global string to be used in other functions
-enum RoadTo //global enum to be used in other functions
+std::string roadChosen;//global string to be used in other functions/string global de folosit in alte functii
+enum RoadTo //global enum to be used in other functions/enum global de folosit in alte functii
 {Village=1,
 Forest,
 Cave
 };
 RoadTo roadTo=Village;
+
+//function that lets you choose which road to take/functie pentru alegerea drumului dorit
 void crossRoads()
 {
     int chooseRoad;
@@ -166,13 +168,15 @@ void crossRoads()
      Clear();
 }
 
-std::string roadChosen2;//global string to be used in other functions
-enum RoadTo2 //global enum to be used in other functions
+std::string roadChosen2;//global string to be used in other functions/string global de folosit in alte functii
+enum RoadTo2 //global enum to be used in other functions/enum global de folosit in alte functii
 {Bog=1,
 Plains,
 Mountain
 };
 RoadTo2 roadTo2=Bog;
+
+//function that lets you choose which road to take/functie pentru alegerea drumului dorit
 void crossRoads2()
 {
     int chooseRoad;
@@ -226,6 +230,7 @@ void crossRoads2()
     Clear();
 }
 
+//function that asks you if you want to open the chest/functie care te intreaba daca vrei sa deschizi cufarul
 bool chestOpen()
 {
     bool openChest=false;
@@ -253,7 +258,7 @@ bool chestOpen()
 return openChest;
 }
 
-
+//function that asks you if you want to open the chest/functie care te intreaba daca vrei sa deschizi cufarul
 bool chestOpen2()
 {
     bool openChest=false;
@@ -281,7 +286,7 @@ bool chestOpen2()
 return openChest;
 }
 
-
+//function that creates a random enemy/functie ce creeaza un inamic random
 std::shared_ptr<Enemy> createEnemy()
 {
     std::shared_ptr<Enemy> enemy;
@@ -312,7 +317,7 @@ std::cout.flush();
     return enemy;
 }
 
-
+//battle function/functia bataliei
 bool theBattle(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
 {
     int player_health=0;
@@ -395,6 +400,7 @@ bool theBattle(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
     return you_win;
 }
 
+//battle function/functia bataliei
 bool theBattle2(std::shared_ptr<Player> player,std::shared_ptr<Enemy> enemy)
 {
     int player_health=0;

@@ -21,13 +21,13 @@ void Player::setPlayerName(std::string name)
 m_player_name=name;
 }
 
-  
+ //virtual  member function that displays who attacks/functie virtuala ce printeaza cine ataca
 void Player::Attack()
 {
     std::cout<<"Player attacks \n";
 }
 
-
+//method that creates weapon objects/metoda ce creaaza obiecte de arme
 ItemPtr Player::createChestItems() {
     weapon = nullptr;
     
@@ -147,6 +147,7 @@ ItemPtr Player::createChestItems() {
     
 }
 
+//method that allows you to check your weapons/metoda care iti permite sa vizualizezi armele
 void Player::CheckInventory()
 {
     for (auto &x:Inventory)
@@ -159,12 +160,13 @@ void Player::CheckInventory()
 }
 
 
-
+//method to clear your inventory/metoda pentru stargerea inventarului
 void Player::clearInventory()
 {
     Inventory.clear();
 }
 
+//method that adds the weapon's attack power to the player's damage/metoda care aduna puterea de atac a armei cu a jucatorului
 int Player::totalAttackPower()
 {
    int totalAttack = this->getDamage();
@@ -175,6 +177,7 @@ int Player::totalAttackPower()
    return totalAttack;//
 }
 
+//method that add's weapon's defence to the player's health/metoda ce adauga apararea armei la sanatatea jucatorului
 int Player::totalHealth()
 {
     int totalHealth = this->getHealth();
